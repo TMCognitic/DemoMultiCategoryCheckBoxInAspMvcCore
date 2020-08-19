@@ -28,6 +28,7 @@
                 {
                     <br />
                     <input type="hidden" asp-for="@Model.Categories[i].Value" />
+                    <input type="hidden" asp-for="@Model.Categories[i].Text" />
                     <input asp-for="Categories[i].Selected" class="form-check-inline" />@Model.Categories[i].Text
                 }
             </div>

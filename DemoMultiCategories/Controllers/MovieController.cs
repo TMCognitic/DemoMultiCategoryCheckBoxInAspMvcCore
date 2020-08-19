@@ -62,7 +62,6 @@ namespace DemoMultiCategories.Controllers
                 }
             }
 
-            form.Categories = _categoryRepository.Get().Select(c => new SelectListItem(c.Name, c.Id.ToString())).ToList();
             return View(form);
         }
 
@@ -107,9 +106,6 @@ namespace DemoMultiCategories.Controllers
                 }
             }
 
-            Movie movie = _movieRepository.Get(id);
-            IEnumerable<int> categories = _categoryRepository.GetByMovieId(movie.Id).Select(c => c.Id);
-            form.Categories = _categoryRepository.Get().Select(c => new SelectListItem(c.Name, c.Id.ToString(), categories.Contains(c.Id))).ToList();
             return View(form);
         }
 
