@@ -14,7 +14,7 @@ namespace DemoMultiCategories.Models.Client.Data
                 return _id;
             }
 
-            set
+            private set
             {
                 _id = value;
             }
