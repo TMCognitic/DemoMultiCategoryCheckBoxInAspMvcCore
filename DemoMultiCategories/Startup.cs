@@ -36,7 +36,6 @@ namespace DemoMultiCategories
             services.AddSingleton<IConnection, Connection>();
             services.AddSingleton<GI.ICategoryRepository, GS.CategoryService>();
             services.AddSingleton<ICategoryRepository, CategoryService>();
-
             services.AddSingleton<GI.IMovieRepository, GS.MovieService>();
             services.AddSingleton<IMovieRepository, MovieService>();
         }

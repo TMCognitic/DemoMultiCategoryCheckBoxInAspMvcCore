@@ -29,7 +29,7 @@ namespace DemoMultiCategories.Controllers
         public ActionResult Details(int id)
         {
             Category category = _categoryRepository.Get(id);
-            return (category is null) ? (ActionResult)RedirectToAction("Index") : View(_categoryRepository.Get());
+            return (category is null) ? (ActionResult)RedirectToAction("Index") : View(_categoryRepository.Get(id));
         }
 
         // GET: CategoryController/Create
