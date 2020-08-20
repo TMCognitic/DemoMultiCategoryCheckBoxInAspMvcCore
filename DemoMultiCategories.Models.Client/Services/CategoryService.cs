@@ -13,10 +13,20 @@ namespace DemoMultiCategories.Models.Client.Services
     public class CategoryService : ICategoryRepository
     {
         private readonly GI.ICategoryRepository _categoryRepository;
-
+                
         public CategoryService(GI.ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
+        }
+
+        public bool Exists(string categoryName)
+        {
+            return _categoryRepository.Exists(categoryName);
+        }
+
+        public bool Exists(int id, string categoryName)
+        {
+            return _categoryRepository.Exists(id, categoryName);
         }
 
         public IEnumerable<Category> Get()

@@ -18,6 +18,21 @@ namespace DemoMultiCategories.Models.Global.Services
             _connection = connection;
         }
 
+        public bool Exists(string categoryName)
+        {
+            Command command = new Command("Select count(*) from Category where Name = @Name;");
+            command.AddParameter("Name", categoryName);
+            return ((int)_connection.ExecuteScalar(command)) == 1;
+        }
+
+        public bool Exists(int id, string categoryName)
+        {
+            Command command = new Command("Select count(*) from Category where Name = @Name and id <> @id;");
+            command.AddParameter("Name", categoryName);
+            command.AddParameter("Id", id);
+            return ((int)_connection.ExecuteScalar(command)) == 1;
+        }
+
         public IEnumerable<Category> Get()
         {
             Command command = new Command("Select Id, Name from Category;");

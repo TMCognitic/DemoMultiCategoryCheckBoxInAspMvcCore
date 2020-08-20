@@ -7,6 +7,8 @@ namespace DemoMultiCategories.Models.Client.Interfaces
 {
     public interface ICategoryRepository
     {
+        bool Exists(string categoryName);
+        bool Exists(int id, string categoryName);
         IEnumerable<Category> Get();
         IEnumerable<Category> GetByMovieId(int movieId);
         Category Get(int id);

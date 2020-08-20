@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DemoMultiCategories.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace DemoMultiCategories.Models.Views
         public int Id { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2)]
+        [UniqueValidation(ValidationAction.Update)]
         public string Name { get; set; }
     }
 }
